@@ -1,0 +1,32 @@
+{
+        "name": "test extension",
+        "version":"0.0.1",
+		"manifest_version":2,
+		"description":"widget desription",
+		"permissions": [
+          "activeTab",
+          "tabs",
+          "http://*/*",
+          "https://*/*"
+        ],
+		"background":{
+			"scripts":["popup.js"]
+		},
+		
+        "icons": {
+          "16": "icon16.ico",
+		  "48":"icon48.ico",
+		  "128":"icon128.ico"
+        },
+		//"page_action": {
+    	//	"default_icon": "icon16.ico", // optional 
+    	//	"default_title": "Do action",    // optional; shown in tooltip 
+    	//	"default_popup": "popup.html"    // optional 
+		//},
+		"browser_action":{
+			"default_icon":"icon16.ico",
+			"default_title":"Make this page red",
+			"default_popup":"popup.html"
+			//“default_badge":"04"
+		}
+}
