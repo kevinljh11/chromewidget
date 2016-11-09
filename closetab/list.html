@@ -1,0 +1,116 @@
+<HTML> 
+    <TITLE>Form Object example</TITLE> 
+    <HEAD> 
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <script language="JavaScript"> 
+        function delrow1() 
+        { 
+            var oElement=event.srcElement; 
+            while(oElement.tagName!="TR") 
+            { 
+                oElement=oElement.parentElement; 
+            } 
+            var oTBody=oElement.parentElement; 
+            oTBody.removeChild(oElement) 
+        }
+        function delrow2()//刪除当前行 
+        { 
+            var currRowIndex=event.srcElement.parentNode.parentNode.rowIndex; 
+        document.all.yltable.deleteRow(currRowIndex);//table10--表格id 
+        } 
+        function insertrow1() //增加的一行方法1 
+        { 
+            var newnode = document.getElementById('yltable').lastChild.cloneNode(true); 
+            document.getElementById('yltable').appendChild(newnode); 
+        }
+
+        function insertrow2() //增加的一行方法2 
+        { 
+            newRow=document.all.yltable.insertRow(-1); 
+            var j_1 = document.all.yltable.rows.length; 
+            newcell=newRow.insertCell(); 
+            newRow.bgColor='#FFFFFF'; 
+            newcell.align='center'; 
+            newcell.innerHTML=""+j_1+"";
+
+
+            newcell=newRow.insertCell() ; 
+            newRow.bgColor='#FFFFFF';
+
+            newcell.align='center'; 
+            newcell.innerHTML="<input type='text' name='ylText"+j_1+"' />";
+
+
+            newcell=newRow.insertCell() ; 
+            newRow.bgColor='#FFFFFF';
+
+            newcell.align='center';
+
+            newcell.innerHTML='<input name="button3" type="button" onClick="delrow1()" value="删除1"> <input name="button3" type="button" onClick="delrow2()" value="删除2">';
+
+            document.all.yltable.focus();
+
+        }
+
+        function inserttable() 
+        { 
+            var newnode = document.getElementById('yltable').cloneNode(true); 
+            document.getElementById('ylform').appendChild(newnode); 
+        } 
+</script> 
+</HEAD> 
+<BODY> 
+    <form name="ylform" id="ylform"> 
+        <center> 
+            <input name="button" type="button" onClick="inserttable()" value="增加表格"> 
+            <input name="button2" type="button" onClick="insertrow1()" value="增加一行1">
+
+            <input name="button22" type="button" onClick="insertrow2()" value="增加一行2"> 
+        </center>
+
+
+        <div style="overflow-y:auto; overflow-x:visible;width:85%;height:150px">
+            <table border="1" align="center" width="50%" id="yltable"> 
+              <TBODY id=yl1> 
+                <tr> 
+                    <td width="30%" height="22"><div align="center">1</div></td> 
+                    <td width="40%"> 
+                        <div align="center"> 
+                            <input name="textfield" type="text" value="yl"> 
+                        </div></td> 
+                        <td width="30%"><div align="center"> 
+                            <input name="button3" type="button" onClick="delrow1()" value="删除1"> <input name="button3" type="button" onClick="delrow2()" value="删除2"> 
+                        </div></td> 
+                    </tr> 
+                </TBODY> 
+                <TBODY id=yl2> 
+                    <tr> 
+                        <td><div align="center">2</div></td> 
+                        <td><div align="center"> 
+                            <input name="textfield2" type="text" value="yanleigis"> 
+                        </div></td> 
+                        <td><div align="center"> 
+                            <input name="button3" type="button" onClick="delrow1()" value="删除1"> <input name="button3" type="button" onClick="delrow2()" value="删除2"> 
+                        </div></td> 
+                    </tr> 
+                </TBODY> 
+                <TBODY id=yl3> 
+                    <tr> 
+                        <td ><div align="center">3</div></td> 
+                        <td ><div align="center"> 
+                            <input name="textfield22" type="text" value="Landgis@126.com"> 
+                        </div></td> 
+                        <td ><div align="center"> 
+                            <input name="button3" type="button" onClick="delrow1()" value="删除1"> <input name="button3" type="button" onClick="delrow2()" value="删除2"> 
+                        </div></td> 
+                    </tr> 
+                </TBODY> 
+            </table> 
+        </div>
+
+
+        <center> 
+        </center> 
+    </form> 
+</BODY> 
+</HTML>
